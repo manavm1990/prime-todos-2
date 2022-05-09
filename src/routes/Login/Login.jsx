@@ -10,10 +10,13 @@ import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
 export default function SignIn() {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = Object.fromEntries(
@@ -23,6 +26,9 @@ export default function SignIn() {
       email,
       password,
     });
+
+    // TODO: Send an API request to login the user
+    navigate("/user/test");
   };
 
   return (
